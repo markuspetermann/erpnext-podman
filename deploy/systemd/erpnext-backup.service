@@ -1,0 +1,10 @@
+[Unit]
+Description=Frappe Backup
+After=erpnext-pod.service
+Requires=erpnext-pod.service
+
+[Service]
+Type=oneshot
+EnvironmentFile=%h/.env.erpnext
+ExecStart=podman exec systemd-erpnext-backend bench \
+    --site $FRAPPE_SITE_NAME_HEADER backup --with-files --compress

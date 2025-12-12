@@ -1,0 +1,12 @@
+[Unit]
+Description=ERPNext Backend
+After=erpnext-config.service
+
+[Container]
+Pod=erpnext.pod
+Image=localhost/erpnext-custom:version-15
+Volume=%h/data/sites:/home/frappe/frappe-bench/sites:U
+Volume=%h/data/logs:/home/frappe/frappe-bench/logs:U
+
+[Service]
+Restart=always

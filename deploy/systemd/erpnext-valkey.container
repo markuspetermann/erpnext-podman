@@ -1,0 +1,10 @@
+[Unit]
+Description=Valkey for ERPNext
+
+[Container]
+Pod=erpnext.pod
+Image=docker.io/valkey/valkey:9-trixie
+Volume=%h/data/valkey:/data:U
+
+[Service]
+Restart=always
